@@ -28,8 +28,7 @@ export default function Home() {
     variables: {
       url: textfield.value,
       desc: desc.value
-    },
-    refetchQueries: [{query:BookMarksQuery}],
+    }
   })
    console.log('textfield',textfield.value)
    console.log('Desc',desc.value)
