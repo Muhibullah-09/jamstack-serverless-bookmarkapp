@@ -1,6 +1,7 @@
 import React from "react"
 import { useQuery, useMutation } from "@apollo/client";
 import gql from "graphql-tag";
+import { Container, Button, Input, Label, Heading } from 'theme-ui';
 import './index.css';
 import Card from '../components/card';
 
@@ -39,48 +40,28 @@ export default function Home() {
     })
   }
   if (error)
-    return <h3>{error}</h3>
+    return <Heading sx={{ color: 'black', fontFamily: 'monospace' , textAlign:"center"}}>{error}</Heading>
 
   if (loading)
-    return <h3>Loading...</h3>
+    return <Heading sx={{ color: 'black', fontFamily: 'monospace' , textAlign:"center"}}>Loading...</Heading>
   return (
-    <div className="container">
-
-      <h2>Add New Bookmark</h2>
-      <label>
-        Enter Bookmark Description: <br />
-        <input type="text" placeholder="Description" ref={node => desc = node} />
-      </label>
-
-      <br />
-      <label>
-        Enter Bookmark Url: <br />
-        <input type="text" placeholder="Enter a valid URL" ref={node => textfield = node} />
-      </label>
-
-      <br />
-      <br />
-      <button onClick={addBookmarkSubmit}>Add Bookmark</button>
-
-      <h2>My Bookmark List</h2>
-
-      <div className="card-container">
+    <div>
+    <Heading sx={{ color: 'black', fontFamily: 'monospace' , textAlign:"center"}}>BookMark App</Heading>
+    <Container   p={4} bg='muted'>
+      <Label sx={{ color: 'black', fontFamily: 'monospace'}} >Enter Bookmark Description:</Label>
+      <Input type="text" placeholder="Description" ref={node => desc = node} /><br/>
+      <Label sx={{ color: 'black', fontFamily: 'monospace'}} >Enter Bookmark Url:</Label>
+      <Input type="text" placeholder="Enter a valid URL" ref={node => textfield = node} /><br/>
+      <Button
+        sx={{ color: 'red', fontFamily: 'monospace', cursor: 'pointer' }}
+        onClick={addBookmarkSubmit}>ADD BOOKMARK
+      </Button>
+    </Container>
+    <Heading sx={{ color: 'black', fontFamily: 'monospace' , textAlign:"center"}}>BookMark List</Heading>
+      <div className="card-container card">
         {data.bookmark.map((bm) => <Card url={bm.url} title={bm.desc} />)}
       </div>
     </div>
   )
 
 }
-
-
-    //   {/* <p>{JSON.stringify(data)}</p> */}
-    //   <div>
-    //     <input type="text" placeholder="URL" ref={node => textfield = node} />
-    //     <input type="text" placeholder="Description" ref={node => desc = node} />
-    //     <button onClick={addBookmarkSubmit}>Add BookMark</button>
-    //     <div>
-    //       {data.bookmark.url}
-    //       {data.bookmark.desc}
-    //     </div>
-    //   </div>
-    // </div>
