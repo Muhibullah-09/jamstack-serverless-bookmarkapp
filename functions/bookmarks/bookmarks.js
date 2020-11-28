@@ -1,12 +1,3 @@
-//Line 5  => ! show mendatory
-//Line 20 => Mutation queries modify data in the data store and
-// returns a value. It can be used to insert, 
-// update, or delete data. Mutations are defined 
-// as a part of the schema.
-// Line 37, 38 => I set up lambda resolver for one field, and this lambda will query to DB and get paginated data.
-// Lambda needs to process fetched data from DB and prepare the response
-// But this response has a lot of data set.
-// I need to paginate this dataset again on lambda.
 const { ApolloServer, gql } = require('apollo-server-lambda')
 const faunadb = require('faunadb'),
   q = faunadb.query;
