@@ -1,5 +1,5 @@
 var plugins = [{
-      plugin: require('/home/muhib/Muheeb/Hello/jamstack-serverless-bookmarkapp/gatsby-ssr'),
+      plugin: require('C:/Users/Hammad/Desktop/jamstack-serverless-bookmarkapp/gatsby-ssr'),
       options: {"plugins":[]},
     }]
 // During bootstrap, we write requires at top of this file which looks like:
